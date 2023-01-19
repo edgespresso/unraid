@@ -1,0 +1,8 @@
+12:15am   TRIM                          (weekly)
+ 1:00am   Plugin & Docker Update Check  (daily)
+ 1:15am   Mover                         (daily)
+ 3:00am   CA Backup                     (daily)
+ 6:20am   User Scripts                  (monthly)
+ 6:30am   User Scripts                  (weekly)
+ 6:40am   User Scripts                  (daily)     Backup to QNAP
+ 
