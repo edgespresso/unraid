@@ -56,10 +56,10 @@ echo ""
 
 # Zip the USB files, LIBVIRT image and APPDATA folder
 echo "Zipping UNRAID USB files, LIBVIRT image and the latest APPDATA backup..."
-#zip -rq $backup_file $usb_path $libvirt_file $appdata_backup_path/$latest_backup/CA_backup.tar
+zip -rq $backup_file $usb_path $libvirt_file $appdata_backup_path/$latest_backup/CA_backup.tar
 
 echo "Copying today's backup to the remote backup server..."
-#cp $backup_file $remote_path
+cp $backup_file $remote_path
 
 echo "Purging backup files that are over 7 days old... "
 find $backup_path -type f -name "*.zip" -mtime +7 -delete
