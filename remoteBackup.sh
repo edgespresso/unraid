@@ -61,8 +61,11 @@ zip -rq $backup_file $usb_path $libvirt_file $appdata_backup_path/$latest_backup
 echo "Copying today's backup to the remote backup server..."
 cp $backup_file $remote_path
 
-echo "Purging backup files that are over 7 days old... "
-find $backup_path -type f -name "*.zip" -mtime +7 -delete
+echo "Purging SSD backup files that are over 7 days old... "
+find $backup_path -type f -name "*.zip" -mmin +$((60*24*7)) -delete
+
+echo "Purging REMOTE backup files that are over 7 days old... "
+find $remote_path -type f -name "*.zip" -mmin +$((60*24*7)) -delete
 
 echo ""
 end_time=$(date)
