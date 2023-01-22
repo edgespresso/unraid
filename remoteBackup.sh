@@ -59,9 +59,10 @@ echo "Zipping UNRAID USB files, LIBVIRT image and the latest APPDATA backup..."
 if zip -rq $backup_file $usb_path $libvirt_file $appdata_backup_path/$latest_backup/CA_backup.tar; then
     echo "Zip successful..."
 else
+    echo ""
     echo "ERROR: Zip failed."
     echo "UNRAID Remote Backup terminated."
-	/usr/local/emhttp/webGui/scripts/notify -i warning -s "Remote Backup Failed" -d "Zip of USB, LIBVIRT and APPDATA failed"
+	/usr/local/emhttp/webGui/scripts/notify -i warning -s "Remote Backup Failed" -d "Zip of USB, LIBVIRT and APPDATA failed."
     exit 1
 fi
 
@@ -69,9 +70,10 @@ echo "Copying today's backup to the remote backup server..."
 if cp $backup_file $remote_path; then
 	echo "Remote backup successful..."
 else
+    echo ""
     echo "ERROR: Remote copy failed."
     echo "UNRAID Remote Backup terminated."
-	/usr/local/emhttp/webGui/scripts/notify -i warning -s "Remote Backup Failed" -d "Remote copy failed"
+	/usr/local/emhttp/webGui/scripts/notify -i warning -s "Remote Backup Failed" -d "Remote copy failed."
     exit 1
 fi   
 
@@ -90,7 +92,7 @@ echo -n "Elapsed time    : "
 date -u -d @$(($(date -d "$end_time" '+%s') - $(date -d "$start_time" '+%s'))) '+%T'
 
 # Log successful completion to UNRAID notifications
-/usr/local/emhttp/webGui/scripts/notify -i normal -e "UNRAID Remote Backup" -s "USB, LIBVIRT and APPDATA remote backup success" -d "Successful backup to $remote_path"
+/usr/local/emhttp/webGui/scripts/notify -i normal -e "UNRAID Remote Backup" -s "USB, LIBVIRT and APPDATA remote backup success" -d "Successful backup to $remote_path."
 
 echo ""
 echo "[*] UNRAID Remote Backup COMPLETE"
