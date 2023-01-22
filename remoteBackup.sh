@@ -26,13 +26,6 @@ libvirt_file="/mnt/user/system/libvirt"
 # Location of your UNRAID APPDATA CABackups
 appdata_backup_path="/mnt/user/backups/appdata"
 #
-# Boolean for zip error
-error_zip=false
-#
-# Boolean remote copy error
-error_copy=false
-#
-#
 # Note: This script does not backup APPDATA from source.  
 #       It grabs the last CABackup.
 #       This script assumes CABackup has successfully completed backup of the appdata folder.
