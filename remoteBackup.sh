@@ -49,6 +49,9 @@ echo ""
 start_time=$(date)
 echo "Start time      : $start_time"
 
+# Log start to UNRAID notifications
+/usr/local/emhttp/webGui/scripts/notify -i normal -e "UNRAID Remote Backup" -s "USB, LIBVIRT and APPDATA remote backup started" -d "Remote backup started $start_time"
+
 # Determine latest backup from the CABackup APPDATA folder
 latest_backup=$(ls -t $appdata_backup_path | head -n1)
 echo "Latest CABackup : $latest_backup"
