@@ -1,0 +1,33 @@
+#
+# Useful code snippets
+#
+
+
+# BASH
+# Get sizes for current directory and subdirectories
+du -sh ./* | sort -h
+
+# BASH
+# Find all the files of a certain name/type/etc and move them to a different directory
+find . -name "*.avi" -type f -exec mv -i {} /mnt/user/media/pdata/__unsorted/ \;
+
+# BASH
+# Find the latest directory/file and save into latest.txt
+ls /mnt/user/backups/appdata -t | head -n1 > latest.txt
+
+# UNRAID
+# Send an UNRAID notification
+/usr/local/emhttp/webGui/scripts/notify -i normal -e "UNRAID Remote Backup" -s "USB, LIBVIRT and APPDATA remote backup success" -d "Successful backup"
+
+# BASH
+# FInd and ls the files that are more than 4 days old (actually 60 mins * 24 hours * 4)
+find /mnt/user/backups/appdata/ -type f -name "*.tar" -mmin +$((60*24*4)) -ls
+find /mnt/user/backups/appdata/ -type f -name "*.tar" -mmin +$((60*24*4)) -delete
+
+# BASH
+# Touch a file and make it 8 days older
+touch -d "8 days ago" unraid_backupold1.zip
+
+
+
+
